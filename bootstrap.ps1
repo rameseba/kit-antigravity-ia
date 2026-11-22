@@ -8,6 +8,8 @@ param(
   [string]$Marca, [string]$Dominio, [string]$Correo, [string]$GitUser
 )
 $ErrorActionPreference = 'Stop'
+# Windows trae los .ps1 bloqueados por defecto: permitirlos SOLO en esta ventana (no cambia la seguridad del PC)
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 $repo = 'rameseba/kit-antigravity-ia'
 $tmp  = Join-Path $env:TEMP ("kit-antigravity-" + (Get-Date -Format 'yyyyMMddHHmmss'))
 New-Item -ItemType Directory -Force -Path $tmp | Out-Null
@@ -15,8 +17,10 @@ New-Item -ItemType Directory -Force -Path $tmp | Out-Null
 Write-Host "Descargando el kit desde github.com/$repo ..." -ForegroundColor Cyan
 $zip = Join-Path $tmp 'kit.zip'
 Invoke-WebRequest "https://github.com/$repo/archive/refs/heads/main.zip" -OutFile $zip -UseBasicParsing
+Unblock-File $zip
 Expand-Archive $zip -DestinationPath $tmp -Force
 $kit = Get-ChildItem $tmp -Directory | Select-Object -First 1 -ExpandProperty FullName
+Get-ChildItem $kit -Recurse -Filter *.ps1 | Unblock-File
 
 # Programas del PC
 $progScript = Join-Path $kit 'programas\instalar-programas.ps1'
