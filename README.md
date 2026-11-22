@@ -2,7 +2,7 @@
 
 Este paquete convierte a Antigravity en un agente que ya sabe **cómo trabajar**: reglas de método,
 errores que no se deben repetir, soluciones que ya funcionaron, qué hacer cuando dices ciertas
-frases, y 77 skills (diseño web, Cloudflare, SEO/GEO, ventas, video, depuración…).
+frases, y 84 skills (diseño web, Cloudflare, SEO/GEO, ventas, video, depuración…).
 
 Todo sale de cientos de sesiones reales haciendo webs, tiendas, paneles, campañas y videos para pymes.
 
@@ -57,8 +57,8 @@ El instalador **respalda** tu `GEMINI.md` y tus reglas anteriores (`.bak-<fecha>
 | Qué | Dónde | Para qué |
 |---|---|---|
 | `GEMINI.md` | `~/.gemini/GEMINI.md` | Reglas globales, siempre activas: idioma, forma de trabajar, verificación, seguridad, costos, memoria, WhatsApp, diseño, disparadores |
-| 7 reglas temáticas | `~/.gemini/config/rules/` | Se activan solas según el tema (el agente decide): diseño web, depuración, config/avisos, propuestas/ventas, costos cloud, video/GPU |
-| 77 skills | `~/.gemini/config/skills/` | Capacidades que el agente carga cuando la tarea lo pide |
+| 8 reglas temáticas | `~/.gemini/config/rules/` | Se activan solas según el tema (el agente decide): diseño web, depuración, config/avisos, propuestas/ventas, costos cloud, video/GPU |
+| 84 skills | `~/.gemini/config/skills/` | Capacidades que el agente carga cuando la tarea lo pide |
 | `leads.md` | `~/.gemini/memoria/` | Tabla de leads/clientes con fecha de seguimiento |
 
 ### Las reglas temáticas
@@ -68,13 +68,36 @@ El instalador **respalda** tu `GEMINI.md` y tus reglas anteriores (`.bak-<fecha>
 - `propuestas-y-ventas.md` — cotizar con propuesta visual A/B + estudio de mercado; qué no decir.
 - `costos-cloud.md` — presupuesto fijo en Cloudflare, topes diarios, pruebas solo en local.
 - `video-gpu.md` — usar la tarjeta NVIDIA para render, voz y transcripción.
+- `antigravity-herramientas.md` — navegador integrado para verificar, qué modelo usar, terminal, imágenes.
+- `mis-reglas.md` — tus reglas propias; las agrega el agente cuando le enseñas algo. Nunca se pisan.
 - `venezuela.md` — economía bimonetaria (tasa BCV, Ref. $ + Bs.), IVA/IGTF, facturación SENIAT, RIF/cédula,
   teléfonos +58 (0412/0422/0414/0424/0416/0426), estados y municipios, Pago Móvil, bancos, Zelle, Binance,
   Cashea, webs para internet lento. Con `-Pais Venezuela` queda siempre activa.
 
+### Actualizar el kit (sin perder lo tuyo)
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/rameseba/kit-antigravity-ia/main/bootstrap.ps1))) -Actualizar
+```
+O dile a Antigravity «actualiza el kit». Reusa tus datos y **no toca** `mis-reglas.md`, `cerebro/reference/mis-*.md`
+ni tus leads. Para solo ver si hay novedades: `-SoloRevisar`. Internet lento: `-Programas Liviano`.
+
+### Plantillas (en `~/kit-antigravity-ia/plantillas/`)
+- `sitio-pyme`: web de negocio lista para personalizar (tasa BCV automática, formulario +58 a WhatsApp, estados,
+  tarjetas 2x2 en móvil, crédito en el pie). HTML/CSS/JS, sin instalar nada.
+- `propuesta`: página para cotizar con muestras A/B, estudio de mercado y 3 precios.
+No guardes proyectos dentro de `~/kit-antigravity-ia`: se reemplaza al actualizar. La skill `nueva-web` copia
+la plantilla a `Documents`.
+
 ### Skills propias del kit
 - `guardar-estado` — escribe `ESTADO.md` para cerrar el chat y retomar sin perder nada.
 - `propuesta-visual` — flujo completo para responder un «cotízame».
+- `nueva-web` — web nueva de punta a punta: plantilla → personalizar → repo → publicar → verificar.
+- `publicar-cloudflare` — publicar gratis sin dominio (`*.workers.dev`), login con wrangler, dominio después.
+- `conectar-github` — login con `gh`, identidad de git y repos privados automáticos.
+- `investigar` — estudio de mercado (20 nacionales + 10 mundiales), precios del mercado, técnica y normas.
+- `creativos-imagenes` — Pexels/Unsplash/Pixabay, Google Flow y Nano Banana, recortes, tamaños para redes.
+- `motion-graphics` — reels y animaciones con Remotion o HTML + ffmpeg, voces venezolanas, subtítulos.
+- `actualizar-kit` — novedades, actualización segura y respaldo privado de lo aprendido en GitHub.
 - `cerebro` — base de conocimiento técnico (Astro + Workers, tiendas Next + Convex, Vercel, pagos
   Webpay/Mercado Pago/Flow, bots, Meta Ads, reels, WhatsApp con IA, auditorías) y cómo ir agregándole.
 
@@ -115,6 +138,11 @@ El instalador **respalda** tu `GEMINI.md` y tus reglas anteriores (`.bak-<fecha>
 | «estoy en el teléfono» | trabaja solo y deja las dudas al final |
 | «mensaje para X» | mensaje listo para WhatsApp en bloque de código |
 | «usa subagentes» | recién ahí paraleliza |
+| «hazme una web para…» | plantilla → GitHub → Cloudflare → verificada en vivo |
+| «publícalo» | lo sube a `<proyecto>.<tu-subdominio>.workers.dev` |
+| «investiga…», «busca fotos», «hazme un reel» | skills de investigación, imágenes y video |
+| «recuerda esto siempre» | lo guarda en `mis-reglas.md` |
+| «actualiza el kit» | trae la versión nueva sin pisar lo tuyo |
 | «está feo», «cara de IA» | vuelve a las reglas de diseño y rehace |
 
 ## Notas

@@ -129,6 +129,9 @@ Donde abajo diga `<TU_MARCA>` o `<tu-dominio.com>`, usar estos valores.
 - Al abrir un proyecto: leer `ESTADO.md` / `AGENTS.md` si existen antes de hacer nada.
 - Lo que sirve para TODOS los proyectos (un bug/patrón repetible, una decisión del usuario) va al
   `cerebro` (ver skill `cerebro`), con fecha y fuente; un dato sin fuente se escribe «POR CONFIRMAR».
+- **Archivos del kit vs archivos del usuario:** este `GEMINI.md`, las reglas y skills del kit se
+  reemplazan al actualizar. Las reglas nuevas del usuario van en `~/.gemini/config/rules/mis-reglas.md`
+  y sus patrones en `cerebro/reference/mis-*.md`: esos nunca se pisan.
 - Documentación pensada para pocos tokens: archivos temáticos sin solapamiento, un índice de una línea
   por archivo, enlazar en vez de duplicar.
 
@@ -184,6 +187,14 @@ Donde abajo diga `<TU_MARCA>` o `<tu-dominio.com>`, usar estos valores.
 | «está feo», «cara de IA» | volver a `web-diseno-y-frontend.md` + `design-taste-frontend`; rehacer, no retocar |
 | «publícalo», «súbelo» | deploy + verificar en la URL real + commit |
 | «sin gastar», «barato» | nada de productos cloud de pago; todo local |
+| «hazme una web», «una página para…» | skill `nueva-web` (plantilla → repo → publicar → verificar) |
+| «conecta GitHub», «crea el repo» | skill `conectar-github` |
+| «publícalo» sin dominio, «inicia sesión en Cloudflare» | skill `publicar-cloudflare` (workers.dev) |
+| «investiga», «qué hace la competencia» | skill `investigar` |
+| «busca fotos», «genera una imagen», «usa Flow», «creativo» | skill `creativos-imagenes` |
+| «un reel», «un video», «animación» | skill `motion-graphics` |
+| «actualiza el kit» | skill `actualizar-kit` |
+| «recuerda esto siempre» | agregarlo a `~/.gemini/config/rules/mis-reglas.md` con fecha y motivo |
 
 ## 13. Antes de cerrar cada tarea
 1. ¿Está verificado en vivo (o dicho claramente que no)?

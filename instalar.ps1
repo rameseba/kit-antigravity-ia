@@ -51,6 +51,15 @@ $leads = Join-Path $gemini 'memoria\leads.md'
 if (-not (Test-Path $leads)) {
   Set-Content -Path $leads -Encoding UTF8 -Value "# Leads y clientes`n`n| Fecha | Lead | Que pidio | Estado | Proximo seguimiento |`n|---|---|---|---|---|`n"
 }
+# Reglas propias del usuario: se crean una vez y las actualizaciones NUNCA las tocan
+$misReglas = Join-Path $destRules 'mis-reglas.md'
+if (-not (Test-Path $misReglas)) {
+  [IO.File]::WriteAllText($misReglas, "---`ntrigger: always_on`ndescription: Reglas propias del usuario (aprendidas trabajando). Tienen prioridad sobre las del kit.`n---`n`n# Mis reglas`n`n<!-- Una regla por linea: fecha - regla - por que. Ej.: 2026-11-22 - Siempre cotizar en dolares - el mercado lo prefiere -->`n", (New-Object Text.UTF8Encoding($false)))
+}
+$registro = Join-Path $config 'skills\cerebro\reference\REGISTRO.md'
+if (-not (Test-Path $registro)) {
+  [IO.File]::WriteAllText($registro, "# Registro de cambios del cerebro`n`nfecha - archivo - que`n`n", (New-Object Text.UTF8Encoding($false)))
+}
 
 # 3) Personalizar marcadores
 $reemplazos = [ordered]@{}
@@ -61,7 +70,7 @@ if ($gituser) { $reemplazos['<tu-marca>'] = $gituser }
 if ($pais)    { $reemplazos['<PAIS>'] = $pais }
 if ($reemplazos.Count -gt 0) {
   $archivos = @($destGem) + (Get-ChildItem $destRules -Filter *.md -File).FullName
-  foreach ($s in 'guardar-estado','propuesta-visual','cerebro') {
+  foreach ($s in 'guardar-estado','propuesta-visual','cerebro','nueva-web','publicar-cloudflare','conectar-github','investigar','creativos-imagenes','motion-graphics','actualizar-kit') {
     $p = Join-Path $config "skills\$s\SKILL.md"; if (Test-Path $p) { $archivos += $p }
   }
   foreach ($f in $archivos) {
@@ -79,6 +88,13 @@ if ($pais -match '^\s*venezuela\s*$') {
     Write-Host 'Regla de Venezuela: siempre activa.' -ForegroundColor Green
   }
 }
+# Guardar los datos para que "actualizar" no vuelva a preguntar
+$kitJson = Join-Path $gemini 'kit.json'
+$version = ''
+$verFile = Join-Path $kit 'VERSION'
+if (Test-Path $verFile) { $version = (Get-Content $verFile -Raw).Trim() }
+[ordered]@{ marca = $marca; dominio = $dominio; correo = $correo; gitUser = $gituser; pais = $pais; version = $version; instalado = (Get-Date -Format 'yyyy-MM-dd HH:mm') } |
+  ConvertTo-Json | Set-Content -Path $kitJson -Encoding UTF8
 $nSkills = (Get-ChildItem (Join-Path $config 'skills') -Directory).Count
 Write-Host ''
 Write-Host "Listo. Reglas globales: $destGem" -ForegroundColor Green

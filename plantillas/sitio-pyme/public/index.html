@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- EDITAR: título (≤ 60 caracteres) y descripción (≤ 155) pensados para Google -->
+  <title>{{NOMBRE}} · {{RUBRO}} en {{CIUDAD}}</title>
+  <meta name="description" content="{{DESCRIPCION_CORTA}}">
+  <meta property="og:title" content="{{NOMBRE}} · {{RUBRO}} en {{CIUDAD}}">
+  <meta property="og:description" content="{{DESCRIPCION_CORTA}}">
+  <meta property="og:image" content="/img/compartir.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=1">
+  <!-- EDITAR: datos estructurados para Google (negocio local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{NOMBRE}}",
+    "description": "{{DESCRIPCION_CORTA}}",
+    "telephone": "+58{{WHATSAPP_10_DIGITOS}}",
+    "address": { "@type": "PostalAddress", "addressLocality": "{{CIUDAD}}", "addressRegion": "{{ESTADO}}", "addressCountry": "VE" },
+    "openingHours": "{{HORARIO_SCHEMA}}",
+    "url": "https://{{URL}}"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="logo" href="#inicio" aria-label="{{NOMBRE}}">
+        <!-- EDITAR: reemplazar por <img src="/img/logo.svg" alt="{{NOMBRE}}" height="40"> -->
+        <span class="logo__mark" aria-hidden="true">{{INICIAL}}</span><span>{{NOMBRE}}</span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#galeria">Trabajos</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn btn--wa top__cta" data-wa="Hola, quiero información" href="#contacto">Escríbenos</a>
+      <button class="menu" aria-expanded="false" aria-controls="nav-movil" aria-label="Abrir menú"><span></span><span></span></button>
+    </div>
+    <nav id="nav-movil" class="nav-movil" hidden>
+      <a href="#servicios">Servicios</a><a href="#precios">Precios</a><a href="#galeria">Trabajos</a>
+      <a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- PORTADA: foto real de borde a borde -->
+    <section id="inicio" class="hero">
+      <img class="hero__img" src="/img/portada.webp" alt="{{ALT_PORTADA}}" width="1920" height="1080" fetchpriority="high">
+      <div class="wrap hero__in">
+        <p class="eyebrow">{{RUBRO}} en {{CIUDAD}}</p>
+        <h1>{{TITULAR_CON}} <mark>{{PALABRA_CLAVE}}</mark></h1>
+        <p class="hero__sub">{{SUBTITULO: qué haces, para quién y por qué elegirte, en una frase}}</p>
+        <div class="hero__ctas">
+          <a class="btn btn--wa" data-wa="Hola, vengo de la web y quiero información" href="#contacto">Pedir por WhatsApp</a>
+          <a class="btn btn--line" href="#servicios">Ver servicios</a>
+        </div>
+        <ul class="hero__datos">
+          <li><strong>{{DATO_1}}</strong> {{DATO_1_TEXTO}}</li>
+          <li><strong>{{DATO_2}}</strong> {{DATO_2_TEXTO}}</li>
+          <li><strong>{{DATO_3}}</strong> {{DATO_3_TEXTO}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICIOS: en móvil quedan en 2x2 -->
+    <section id="servicios" class="sec">
+      <div class="wrap">
+        <header class="sec__head">
+          <h2>Servicios</h2>
+          <p>{{FRASE_SERVICIOS}}</p>
+        </header>
+        <div class="grid grid--4">
+          <!-- EDITAR: duplicar o borrar tarjetas. Foto real en cada una. -->
+          <article class="card">
+            <img src="/img/servicio-1.webp" alt="{{SERVICIO_1}}" width="600" height="450" loading="lazy">
+            <h3>{{SERVICIO_1}}</h3>
+            <p>{{SERVICIO_1_DESCRIPCION}}</p>
+          </article>
+          <article class="card">
+            <img src="/img/servicio-2.webp" alt="{{SERVICIO_2}}" width="600" height="450" loading="lazy">
+            <h3>{{SERVICIO_2}}</h3>
+            <p>{{SERVICIO_2_DESCRIPCION}}</p>
+          </article>
+          <article class="card">
+            <img src="/img/servicio-3.webp" alt="{{SERVICIO_3}}" width="600" height="450" loading="lazy">
+            <h3>{{SERVICIO_3}}</h3>
+            <p>{{SERVICIO_3_DESCRIPCION}}</p>
+          </article>
+          <article class="card">
+            <img src="/img/servicio-4.webp" alt="{{SERVICIO_4}}" width="600" height="450" loading="lazy">
+            <h3>{{SERVICIO_4}}</h3>
+            <p>{{SERVICIO_4_DESCRIPCION}}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS: en dólares de referencia; app.js agrega el monto en Bs. a tasa BCV -->
+    <section id="precios" class="sec sec--suave">
+      <div class="wrap">
+        <header class="sec__head">
+          <h2>Precios</h2>
+          <p class="tasa" data-tasa>Precios referenciales en dólares; se pagan en bolívares a la tasa BCV del día.</p>
+        </header>
+        <div class="grid grid--3">
+          <!-- data-usd = precio en dólares (número con punto decimal) -->
+          <article class="precio">
+            <h3>{{PLAN_1}}</h3>
+            <p class="precio__monto" data-usd="10">Ref. $ 10,00</p>
+            <p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE_1}}</li><li>{{INCLUYE_2}}</li></ul>
+            <a class="btn btn--line" data-wa="Hola, me interesa {{PLAN_1}}" href="#contacto">Lo quiero</a>
+          </article>
+          <article class="precio precio--destacado">
+            <p class="precio__tag">Más pedido</p>
+            <h3>{{PLAN_2}}</h3>
+            <p class="precio__monto" data-usd="25">Ref. $ 25,00</p>
+            <p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE_1}}</li><li>{{INCLUYE_2}}</li><li>{{INCLUYE_3}}</li></ul>
+            <a class="btn btn--wa" data-wa="Hola, me interesa {{PLAN_2}}" href="#contacto">Lo quiero</a>
+          </article>
+          <article class="precio">
+            <h3>{{PLAN_3}}</h3>
+            <p class="precio__monto" data-usd="45">Ref. $ 45,00</p>
+            <p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE_1}}</li><li>{{INCLUYE_2}}</li><li>{{INCLUYE_3}}</li><li>{{INCLUYE_4}}</li></ul>
+            <a class="btn btn--line" data-wa="Hola, me interesa {{PLAN_3}}" href="#contacto">Lo quiero</a>
+          </article>
+        </div>
+        <p class="pagos"><strong>Formas de pago:</strong> Pago Móvil · Transferencia · Zelle · Binance · Efectivo en divisas · Punto de venta</p>
+      </div>
+    </section>
+
+    <!-- GALERÍA / TRABAJOS -->
+    <section id="galeria" class="sec">
+      <div class="wrap">
+        <header class="sec__head"><h2>Trabajos</h2><p>{{FRASE_GALERIA}}</p></header>
+        <div class="galeria">
+          <img src="/img/trabajo-1.webp" alt="{{ALT_TRABAJO_1}}" width="800" height="800" loading="lazy">
+          <img src="/img/trabajo-2.webp" alt="{{ALT_TRABAJO_2}}" width="800" height="800" loading="lazy">
+          <img src="/img/trabajo-3.webp" alt="{{ALT_TRABAJO_3}}" width="800" height="800" loading="lazy">
+          <img src="/img/trabajo-4.webp" alt="{{ALT_TRABAJO_4}}" width="800" height="800" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- PASOS -->
+    <section class="sec sec--suave">
+      <div class="wrap">
+        <header class="sec__head"><h2>Así de fácil</h2></header>
+        <ol class="pasos">
+          <li><strong>Escríbenos</strong> por WhatsApp o el formulario.</li>
+          <li><strong>Te respondemos</strong> con precio y disponibilidad.</li>
+          <li><strong>Pagas</strong> como prefieras y coordinamos.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS: solo reales (Google Maps, Instagram, WhatsApp con permiso). Si no hay, borrar la sección. -->
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec__head"><h2>Lo que dicen nuestros clientes</h2></header>
+        <div class="grid grid--3">
+          <blockquote class="testimonio"><p>«{{TESTIMONIO_1}}»</p><footer>{{CLIENTE_1}}</footer></blockquote>
+          <blockquote class="testimonio"><p>«{{TESTIMONIO_2}}»</p><footer>{{CLIENTE_2}}</footer></blockquote>
+          <blockquote class="testimonio"><p>«{{TESTIMONIO_3}}»</p><footer>{{CLIENTE_3}}</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="preguntas" class="sec sec--suave">
+      <div class="wrap wrap--angosto">
+        <header class="sec__head"><h2>Preguntas frecuentes</h2></header>
+        <details><summary>¿Hacen delivery?</summary><p>{{RESPUESTA_DELIVERY}}</p></details>
+        <details><summary>¿Cómo puedo pagar?</summary><p>Pago Móvil, transferencia, Zelle, Binance, efectivo en divisas o punto de venta. Los precios están en dólares de referencia y se pueden pagar en bolívares a la tasa BCV del día.</p></details>
+        <details><summary>¿Cuál es el horario?</summary><p>{{HORARIO}}</p></details>
+        <details><summary>{{PREGUNTA_4}}</summary><p>{{RESPUESTA_4}}</p></details>
+      </div>
+    </section>
+
+    <!-- CONTACTO: el formulario arma el mensaje y abre WhatsApp (no guarda datos en ningún servidor) -->
+    <section id="contacto" class="sec contacto">
+      <div class="wrap contacto__in">
+        <div>
+          <h2>Contacto</h2>
+          <p>{{FRASE_CONTACTO}}</p>
+          <ul class="contacto__datos">
+            <li><strong>WhatsApp:</strong> <a data-wa="Hola" href="#">{{WHATSAPP_VISIBLE}}</a></li>
+            <li><strong>Dirección:</strong> {{DIRECCION}} ({{PUNTO_DE_REFERENCIA}})</li>
+            <li><strong>Horario:</strong> {{HORARIO}}</li>
+            <li><strong>Instagram:</strong> <a href="https://instagram.com/{{INSTAGRAM}}" rel="noopener" target="_blank">@{{INSTAGRAM}}</a></li>
+          </ul>
+        </div>
+        <form class="form" id="form-contacto" novalidate>
+          <label>Nombre<input name="nombre" autocomplete="name" required minlength="2" maxlength="60"></label>
+          <label>Teléfono (WhatsApp)<input name="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="0414-1234567"></label>
+          <div class="form__fila">
+            <label>Estado<select name="estado" required><option value="">Elige…</option></select></label>
+            <label>Municipio<input name="municipio" maxlength="60" placeholder="Ej. Libertador"></label>
+          </div>
+          <label>¿Qué necesitas?<textarea name="mensaje" rows="4" required minlength="5" maxlength="600"></textarea></label>
+          <p class="form__error" role="alert" hidden></p>
+          <button class="btn btn--wa" type="submit">Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="wrap pie__in">
+      <p>© <span data-anio></span> {{NOMBRE}} · {{CIUDAD}}, Venezuela</p>
+      <!-- Crédito del creador: destacado y enlazado (EDITAR marca y dominio) -->
+      <a class="credito" href="https://{{DOMINIO_CREADOR}}" target="_blank" rel="noopener">
+        <small>Diseño y desarrollo web</small><strong>{{MARCA_CREADOR}}</strong>
+      </a>
+    </div>
+  </footer>
+
+  <a class="wa-flotante" data-wa="Hola, vengo de la web" href="#contacto" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.2-.3-.3-.6-.4Z"/></svg>
+  </a>
+
+  <script src="/app.js?v=1" defer></script>
+</body>
+</html>

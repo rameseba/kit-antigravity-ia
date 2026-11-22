@@ -36,6 +36,20 @@ Método y scripts: skill `propuesta-visual` y `cerebro/reference/estudio-mercado
 - En el sitio propio de la marca, no decir que se desarrolla con IA. La IA se ofrece como SERVICIO
   (automatizaciones, chatbots). Hacer contenido SOBRE IA (videos, reels) sí está bien.
 
+## Precios: definirlos con datos, no a ojo
+- Los montos de ejemplo de este kit vienen de Chile (pesos chilenos): **no copiarlos** a otro país.
+- Antes de la primera cotización en un mercado nuevo (ej. Venezuela): skill `investigar` → sección
+  «Precios del mercado» (freelancers y agencias locales, Workana, Instagram, grupos) → tabla
+  mínimo–típico–alto en **dólares**, y skill `analista-precios` para el análisis −20 %/+20 %. Guardar la
+  escalera elegida en `cerebro/reference/mis-precios.md` con fecha, y usar siempre esa.
+- Estructura de escalera que funciona (montos a definir por el usuario):
+  1. **Landing de una página** (entrada, la más barata).
+  2. **Web completa** con varias secciones y, si aplica, panel para editar (la recomendada).
+  3. **Versión B «wow»** o tienda / sistema a medida (la más alta).
+  + Aparte: dominio, mantención mensual, publicidad (Meta/Google) por plataforma.
+- Venezuela: cotizar en $ de referencia; aceptar Zelle, Binance, efectivo en divisas o Bs. a tasa BCV
+  del día de pago; pago típico 50 % al empezar y 50 % al publicar. Dejarlo escrito en la propuesta.
+
 ## Paquetes
 - El paquete «web pyme» = web + panel editable (/admin) + SEO, AEO y GEO reforzado.
 - **Google Ads / Meta Ads nunca dentro de un paquete web**: siempre como opción separada, por

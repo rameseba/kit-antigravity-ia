@@ -5,6 +5,15 @@ description: Arma una propuesta comercial visual publicada (maqueta A, versión 
 
 # Propuesta visual (cotizar = mostrar, no escribir precios)
 
+**Plantilla lista:** `~/kit-antigravity-ia/plantillas/propuesta/` (página de propuesta con muestras A/B,
+resumen del estudio, 3 precios en $ con Bs. a tasa BCV, condiciones y botón de WhatsApp; carpetas
+`/maqueta-a/`, `/maqueta-b/` y `/estudio/` para las páginas en vivo). Las maquetas parten de
+`plantillas/sitio-pyme` con la marca del cliente. Publicar con la skill `publicar-cloudflare` como
+`propuesta-<rubro>` → `https://propuesta-<rubro>.<subdominio>.workers.dev` (o subdominio propio).
+
+**«Muestra» sin cotizar:** si el usuario solo quiere mostrarle algo a un posible cliente (o probar una
+idea para sí mismo), hacer solo la maqueta A en vivo con su marca, sin precios ni estudio.
+
 ## Flujo completo (todo en la primera entrega)
 1. **Leer al lead:** rubro, ciudad, qué pidió, logo/colores, redes, si ya tiene dominio. Si falta algo
    crítico, preguntar UNA vez; lo demás, supuestos razonables.

@@ -32,7 +32,6 @@ nombres de clientes son solo referencia del caso.
 | Paneles de cliente | `patrones/PANELES-DE-CLIENTE.md` |
 | Sitios locales + Google Ads + Perfil de Google | `patrones/SITIOS-LOCALES-ADS-GBP.md` |
 | Tiendas Convex + Next | `patrones/TIENDAS-CONVEX-NEXT.md` |
-| Prompt para generar imágenes en Antigravity | `patrones/PROMPT-ANTIGRAVITY-IMAGENES.md` |
 
 Rutas como `Documents/<proyecto>` o `D:\...` dentro de los archivos son de la máquina original: tomarlas
 como ejemplo de estructura, no como rutas existentes.

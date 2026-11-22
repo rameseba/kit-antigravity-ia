@@ -1,0 +1,9 @@
+{
+  // EDITAR: "name" = nombre del proyecto en minúsculas con guiones.
+  // Sin dominio queda en https://<name>.<tu-subdominio>.workers.dev
+  "name": "mi-sitio-pyme",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./public", "not_found_handling": "404-page" }
+  // Con dominio propio, agregar:
+  // ,"routes": [{ "pattern": "midominio.com", "custom_domain": true }]
+}

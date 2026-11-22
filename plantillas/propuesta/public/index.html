@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Propuesta para {{CLIENTE}} · {{MARCA_CREADOR}}</title>
+  <meta name="description" content="Propuesta de {{TIPO_DE_PROYECTO}} para {{CLIENTE}}.">
+  <meta name="robots" content="noindex">  <!-- las propuestas no deben salir en Google -->
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=1">
+  <link rel="stylesheet" href="/propuesta.css?v=1">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="logo" href="#inicio"><span class="logo__mark" aria-hidden="true">{{INICIAL_CREADOR}}</span><span>{{MARCA_CREADOR}}</span></a>
+      <nav class="nav" aria-label="Secciones">
+        <a href="#muestras">Muestras</a><a href="#estudio">Estudio</a><a href="#precios">Inversión</a><a href="#pasos">Cómo seguimos</a>
+      </nav>
+      <a class="btn btn--wa top__cta" data-wa="Hola, vi la propuesta y quiero avanzar" href="#pasos">Quiero avanzar</a>
+      <button class="menu" aria-expanded="false" aria-controls="nav-movil" aria-label="Abrir menú"><span></span><span></span></button>
+    </div>
+    <nav id="nav-movil" class="nav-movil" hidden>
+      <a href="#muestras">Muestras</a><a href="#estudio">Estudio</a><a href="#precios">Inversión</a><a href="#pasos">Cómo seguimos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="sec prop-hero">
+      <div class="wrap">
+        <p class="eyebrow-oscuro">Propuesta para {{CLIENTE}} · {{FECHA}}</p>
+        <h1>{{PROMESA: qué va a lograr el cliente con esto, en una frase}}</h1>
+        <p class="lead">{{RESUMEN: el problema que nos contó y cómo lo resolvemos, en 2 líneas}}</p>
+        <div class="hero__ctas">
+          <a class="btn btn--wa" data-wa="Hola, vi la propuesta y quiero avanzar" href="#pasos">Quiero avanzar</a>
+          <a class="btn btn--line" href="#muestras">Ver las muestras</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LO QUE ENTENDIMOS -->
+    <section class="sec sec--suave">
+      <div class="wrap grid grid--3">
+        <article><h3>Lo que nos pediste</h3><p>{{PEDIDO}}</p></article>
+        <article><h3>Lo que vimos</h3><p>{{DIAGNOSTICO: qué falla hoy o qué oportunidad hay}}</p></article>
+        <article><h3>Lo que proponemos</h3><p>{{SOLUCION}}</p></article>
+      </div>
+    </section>
+
+    <!-- MUESTRAS A y B: maquetas en vivo (carpetas /maqueta-a/ y /maqueta-b/) + capturas -->
+    <section id="muestras" class="sec">
+      <div class="wrap">
+        <header class="sec__head"><h2>Así se vería</h2><p>Dos direcciones distintas. Ábrelas en tu celular: son páginas reales, no imágenes. Las fotos son de ejemplo.</p></header>
+        <div class="muestras">
+          <a class="muestra" href="/maqueta-a/" target="_blank" rel="noopener">
+            <img src="/img/maqueta-a.webp" alt="Muestra A" width="1200" height="900" loading="lazy">
+            <div><span class="chip">Versión A · Clásica</span><h3>{{NOMBRE_A}}</h3><p>{{DESCRIPCION_A: clara, directa, lo que el cliente espera}}</p><span class="link">Abrir muestra A →</span></div>
+          </a>
+          <a class="muestra muestra--b" href="/maqueta-b/" target="_blank" rel="noopener">
+            <img src="/img/maqueta-b.webp" alt="Muestra B" width="1200" height="900" loading="lazy">
+            <div><span class="chip">Versión B · Diferente</span><h3>{{NOMBRE_B}}</h3><p>{{DESCRIPCION_B: basada en el estudio, lo que nadie del rubro está haciendo}}</p><span class="link">Abrir muestra B →</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTUDIO DE MERCADO (resumen; el detalle va en /estudio/) -->
+    <section id="estudio" class="sec sec--suave">
+      <div class="wrap">
+        <header class="sec__head"><h2>Qué hace tu competencia</h2><p>Revisamos {{N_NACIONALES}} sitios de {{PAIS}} y {{N_MUNDIALES}} del mundo de tu rubro.</p></header>
+        <div class="grid grid--3">
+          <article class="dato"><strong>{{CIFRA_1}}</strong><p>{{HALLAZGO_1}}</p></article>
+          <article class="dato"><strong>{{CIFRA_2}}</strong><p>{{HALLAZGO_2}}</p></article>
+          <article class="dato"><strong>{{CIFRA_3}}</strong><p>{{HALLAZGO_3}}</p></article>
+        </div>
+        <p><a class="btn btn--line" href="/estudio/">Ver el estudio completo</a></p>
+      </div>
+    </section>
+
+    <!-- INVERSIÓN: 3 opciones, la recomendada destacada. data-usd = precio en dólares -->
+    <section id="precios" class="sec">
+      <div class="wrap">
+        <header class="sec__head"><h2>Inversión</h2><p class="tasa" data-tasa>Precios en dólares. Se pueden pagar en bolívares a la tasa BCV del día de pago.</p></header>
+        <div class="grid grid--3">
+          <article class="precio">
+            <h3>{{OPCION_1}}</h3>
+            <p class="precio__monto" data-usd="{{USD_1}}">Ref. $ {{USD_1}}</p><p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li></ul>
+            <a class="btn btn--line" data-wa="Hola, me interesa la opción {{OPCION_1}}" href="#pasos">Elegir</a>
+          </article>
+          <article class="precio precio--destacado">
+            <p class="precio__tag">Recomendada</p>
+            <h3>{{OPCION_2}}</h3>
+            <p class="precio__monto" data-usd="{{USD_2}}">Ref. $ {{USD_2}}</p><p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li></ul>
+            <a class="btn btn--wa" data-wa="Hola, me interesa la opción {{OPCION_2}}" href="#pasos">Elegir</a>
+          </article>
+          <article class="precio">
+            <h3>{{OPCION_3}}</h3>
+            <p class="precio__monto" data-usd="{{USD_3}}">Ref. $ {{USD_3}}</p><p class="precio__bs" data-bs></p>
+            <ul><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li><li>{{INCLUYE}}</li></ul>
+            <a class="btn btn--line" data-wa="Hola, me interesa la opción {{OPCION_3}}" href="#pasos">Elegir</a>
+          </article>
+        </div>
+        <div class="condiciones">
+          <p><strong>Forma de pago:</strong> {{FORMA_DE_PAGO: ej. 50 % para empezar y 50 % al publicar}} · Zelle, Binance, Pago Móvil o efectivo en divisas.</p>
+          <p><strong>Plazo:</strong> {{PLAZO}} desde que recibimos fotos, textos y el primer pago.</p>
+          <p><strong>Aparte (opcional):</strong> dominio propio, publicidad en Instagram/Google y mantención mensual se cotizan por separado.</p>
+          <p><strong>Validez:</strong> esta propuesta es válida hasta el {{VALIDA_HASTA}}.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO SEGUIMOS -->
+    <section id="pasos" class="sec sec--suave">
+      <div class="wrap">
+        <header class="sec__head"><h2>Cómo seguimos</h2></header>
+        <ol class="pasos">
+          <li><strong>Eliges la opción</strong> y la versión (A o B) por WhatsApp.</li>
+          <li><strong>Nos envías</strong> logo, fotos, textos y el primer pago.</li>
+          <li><strong>En {{PLAZO}}</strong> tienes tu web publicada y revisada contigo.</li>
+        </ol>
+        <p style="margin-top:1.6rem"><a class="btn btn--wa" data-wa="Hola, vi la propuesta y quiero avanzar" href="#">Quiero avanzar por WhatsApp</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="wrap pie__in">
+      <p>Propuesta preparada por {{MARCA_CREADOR}} para {{CLIENTE}}.</p>
+      <a class="credito" href="https://{{DOMINIO_CREADOR}}" target="_blank" rel="noopener"><small>Diseño y desarrollo web</small><strong>{{MARCA_CREADOR}}</strong></a>
+    </div>
+  </footer>
+  <a class="wa-flotante" data-wa="Hola, tengo una pregunta sobre la propuesta" href="#" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.2-.3-.3-.6-.4Z"/></svg>
+  </a>
+  <!-- app.js: EDITAR CONFIG.whatsapp con el WhatsApp del CREADOR (quien cotiza), no del cliente -->
+  <script src="/app.js?v=1" defer></script>
+</body>
+</html>
