@@ -2,8 +2,8 @@
 # Uso: clic derecho > "Ejecutar con PowerShell", o en una terminal:
 #   powershell -ExecutionPolicy Bypass -File .\instalar.ps1
 # Opcional: -Legacy  (copia las skills tambien en ~/.gemini/antigravity/skills para versiones antiguas)
-#           -Marca X -Dominio x.cl -Correo c@x.cl -GitUser x   (sin preguntas; util desde el agente)
-param([switch]$Legacy, [string]$Marca, [string]$Dominio, [string]$Correo, [string]$GitUser, [switch]$SinPreguntas)
+#           -Marca X -Dominio x.cl -Correo c@x.cl -GitUser x -Pais Venezuela   (sin preguntas; util desde el agente)
+param([switch]$Legacy, [string]$Marca, [string]$Dominio, [string]$Correo, [string]$GitUser, [string]$Pais, [switch]$SinPreguntas)
 
 $ErrorActionPreference = 'Stop'
 $kit    = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -14,13 +14,14 @@ $fecha  = Get-Date -Format 'yyyy-MM-dd-HHmm'
 
 Write-Host ''
 Write-Host '=== Kit Antigravity: instalacion ===' -ForegroundColor Cyan
-$marca = $Marca; $dominio = $Dominio; $correo = $Correo; $gituser = $GitUser
+$marca = $Marca; $dominio = $Dominio; $correo = $Correo; $gituser = $GitUser; $pais = $Pais
 if (-not $SinPreguntas -and -not ($marca -or $dominio -or $correo -or $gituser)) {
   Write-Host 'Responde 4 datos para personalizar las reglas (Enter = dejar el marcador para editar despues).'
   $marca   = Read-Host 'Nombre de tu marca o estudio (ej. MiEstudio)'
   $dominio = Read-Host 'Tu dominio (ej. miestudio.cl)'
   $correo  = Read-Host 'Correo de trabajo publico (ej. contacto@miestudio.cl)'
   $gituser = Read-Host 'Usuario de git (ej. miestudio)'
+  $pais    = Read-Host 'Pais donde trabajas (ej. Venezuela, Chile)'
 }
 
 New-Item -ItemType Directory -Force -Path $gemini, $config, (Join-Path $config 'rules'), (Join-Path $config 'skills'), (Join-Path $gemini 'memoria') | Out-Null
@@ -57,6 +58,7 @@ if ($correo)  { $reemplazos['<contacto@tu-dominio.com>'] = $correo }
 if ($dominio) { $reemplazos['<tu-dominio.com>'] = $dominio }
 if ($marca)   { $reemplazos['<TU_MARCA>'] = $marca }
 if ($gituser) { $reemplazos['<tu-marca>'] = $gituser }
+if ($pais)    { $reemplazos['<PAIS>'] = $pais }
 if ($reemplazos.Count -gt 0) {
   $archivos = @($destGem) + (Get-ChildItem $destRules -Filter *.md -File).FullName
   foreach ($s in 'guardar-estado','propuesta-visual','cerebro') {
@@ -69,6 +71,14 @@ if ($reemplazos.Count -gt 0) {
   }
 }
 
+if ($pais -match '^\s*venezuela\s*$') {
+  $ve = Join-Path $destRules 'venezuela.md'
+  if (Test-Path $ve) {
+    $t = [IO.File]::ReadAllText($ve, [Text.Encoding]::UTF8).Replace('trigger: model_decision', 'trigger: always_on')
+    [IO.File]::WriteAllText($ve, $t, (New-Object Text.UTF8Encoding($false)))
+    Write-Host 'Regla de Venezuela: siempre activa.' -ForegroundColor Green
+  }
+}
 $nSkills = (Get-ChildItem (Join-Path $config 'skills') -Directory).Count
 Write-Host ''
 Write-Host "Listo. Reglas globales: $destGem" -ForegroundColor Green
@@ -76,6 +86,6 @@ Write-Host "Reglas tematicas: $destRules"
 Write-Host "Skills instaladas: $nSkills en $(Join-Path $config 'skills')"
 Write-Host ''
 Write-Host 'Siguiente paso: cierra y vuelve a abrir Antigravity. Luego lee README.md (seccion "Primeros pasos").'
-if (-not ($marca -and $dominio -and $correo -and $gituser)) {
+if (-not ($marca -and $dominio -and $correo -and $gituser -and $pais)) {
   Write-Host 'Quedaron marcadores sin completar: edita la seccion 0 de ~/.gemini/GEMINI.md.' -ForegroundColor Yellow
 }

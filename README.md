@@ -17,7 +17,7 @@ Pregunta si instalar los programas, luego tus 4 datos, y deja todo listo. Despu�
 Pega esto en el chat del agente (cambia tus datos):
 ```
 Instala mi kit de reglas y skills. Ejecuta en la terminal de PowerShell este comando y espera a que termine:
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/rameseba/kit-antigravity-ia/main/bootstrap.ps1))) -Programas Base -Marca "MiEstudio" -Dominio "miestudio.cl" -Correo "contacto@miestudio.cl" -GitUser "miestudio"
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/rameseba/kit-antigravity-ia/main/bootstrap.ps1))) -Programas Base -Marca "MiEstudio" -Dominio "miestudio.cl" -Correo "contacto@miestudio.cl" -GitUser "miestudio" -Pais "Venezuela"
 Luego lee ~/kit-antigravity-ia/README.md y dime que quedo instalado.
 ```
 Después cierra y vuelve a abrir Antigravity para que cargue las reglas.
@@ -57,7 +57,7 @@ El instalador **respalda** tu `GEMINI.md` y tus reglas anteriores (`.bak-<fecha>
 | Qué | Dónde | Para qué |
 |---|---|---|
 | `GEMINI.md` | `~/.gemini/GEMINI.md` | Reglas globales, siempre activas: idioma, forma de trabajar, verificación, seguridad, costos, memoria, WhatsApp, diseño, disparadores |
-| 6 reglas temáticas | `~/.gemini/config/rules/` | Se activan solas según el tema (el agente decide): diseño web, depuración, config/avisos, propuestas/ventas, costos cloud, video/GPU |
+| 7 reglas temáticas | `~/.gemini/config/rules/` | Se activan solas según el tema (el agente decide): diseño web, depuración, config/avisos, propuestas/ventas, costos cloud, video/GPU |
 | 77 skills | `~/.gemini/config/skills/` | Capacidades que el agente carga cuando la tarea lo pide |
 | `leads.md` | `~/.gemini/memoria/` | Tabla de leads/clientes con fecha de seguimiento |
 
@@ -68,6 +68,9 @@ El instalador **respalda** tu `GEMINI.md` y tus reglas anteriores (`.bak-<fecha>
 - `propuestas-y-ventas.md` — cotizar con propuesta visual A/B + estudio de mercado; qué no decir.
 - `costos-cloud.md` — presupuesto fijo en Cloudflare, topes diarios, pruebas solo en local.
 - `video-gpu.md` — usar la tarjeta NVIDIA para render, voz y transcripción.
+- `venezuela.md` — economía bimonetaria (tasa BCV, Ref. $ + Bs.), IVA/IGTF, facturación SENIAT, RIF/cédula,
+  teléfonos +58 (0412/0422/0414/0424/0416/0426), estados y municipios, Pago Móvil, bancos, Zelle, Binance,
+  Cashea, webs para internet lento. Con `-Pais Venezuela` queda siempre activa.
 
 ### Skills propias del kit
 - `guardar-estado` — escribe `ESTADO.md` para cerrar el chat y retomar sin perder nada.

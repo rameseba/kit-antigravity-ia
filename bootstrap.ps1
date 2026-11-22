@@ -5,7 +5,7 @@
 #   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/rameseba/kit-antigravity-ia/main/bootstrap.ps1))) -Programas Base -Marca "MiEstudio" -Dominio "miestudio.cl" -Correo "contacto@miestudio.cl" -GitUser "miestudio"
 param(
   [ValidateSet('Preguntar','Base','Todo','Ninguno')][string]$Programas = 'Preguntar',
-  [string]$Marca, [string]$Dominio, [string]$Correo, [string]$GitUser
+  [string]$Marca, [string]$Dominio, [string]$Correo, [string]$GitUser, [string]$Pais
 )
 $ErrorActionPreference = 'Stop'
 # Windows trae los .ps1 bloqueados por defecto: permitirlos SOLO en esta ventana (no cambia la seguridad del PC)
@@ -35,8 +35,8 @@ switch ($Programas) {
 
 # Reglas y skills
 $inst = Join-Path $kit 'instalar.ps1'
-if ($Marca -or $Dominio -or $Correo -or $GitUser) {
-  & $inst -Marca $Marca -Dominio $Dominio -Correo $Correo -GitUser $GitUser
+if ($Marca -or $Dominio -or $Correo -or $GitUser -or $Pais) {
+  & $inst -Marca $Marca -Dominio $Dominio -Correo $Correo -GitUser $GitUser -Pais $Pais
 } elseif ($Programas -eq 'Preguntar') {
   & $inst
 } else {

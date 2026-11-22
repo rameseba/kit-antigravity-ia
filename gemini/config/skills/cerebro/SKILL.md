@@ -27,6 +27,7 @@ nombres de clientes son solo referencia del caso.
 | Asistente de WhatsApp con IA (API oficial) | `whatsapp-asistente-ia-oficial.md` |
 | Herramientas externas y locales (Windows) | `herramientas-externas.md`, `herramientas-locales-windows.md` |
 | Catálogo de agentes de negocio (precios, ofertas, CFO…) | `agency-agents-catalogo.md`, `agency-catalogo-completo.md` |
+| Venezuela: POS real (tasas BCV, IGTF, medios de pago, comprobante, contador) | `venezuela-pos-spec.md`, `venezuela-country-ve.ts` (regla resumida: `~/.gemini/config/rules/venezuela.md`) |
 | Patrones transversales (errores repetidos en todos los proyectos) | `patrones/TRANSVERSALES.md` |
 | Paneles de cliente | `patrones/PANELES-DE-CLIENTE.md` |
 | Sitios locales + Google Ads + Perfil de Google | `patrones/SITIOS-LOCALES-ADS-GBP.md` |

@@ -11,6 +11,8 @@
 - Correo público de trabajo: `<contacto@tu-dominio.com>`
 - Usuario de git: `<tu-marca>`
 - Sistema: Windows + PowerShell (cambiar si usas Mac/Linux)
+- País principal de trabajo: `<PAIS>` (formularios, teléfonos, moneda, impuestos y textos por defecto;
+  si un cliente es de otro país, se usa el del cliente). Venezuela → leer SIEMPRE la regla `venezuela.md`.
 Donde abajo diga `<TU_MARCA>` o `<tu-dominio.com>`, usar estos valores.
 
 ## 1. Idioma
@@ -150,7 +152,9 @@ Donde abajo diga `<TU_MARCA>` o `<tu-dominio.com>`, usar estos valores.
   (salvo que la referencia tenga oscuro), nav al centro (logo izq., acciones der.), fotos reales.
 - Si el usuario da como referencia un sitio, usar **exactamente sus tokens de color**; solo agregar el
   acento que pida.
-- Formularios chilenos: nombre, teléfono `+56 9`, las 346 comunas; validar en navegador Y servidor.
+- Formularios según el país del cliente; validar en navegador Y servidor. Chile: teléfono `+56 9`, las
+  346 comunas, RUT. Venezuela: teléfono `+58` (0412/0422/0414/0424/0416/0426), estado → municipio,
+  cédula/RIF, precios Ref. $ + Bs. a tasa BCV (regla `venezuela.md`).
 - Footer de cada sitio entregado: crédito destacado y enlazado «Diseñado por <tu-dominio.com>», que el
   botón flotante de WhatsApp no tape.
 - Móvil: tarjetas 2x2, nada de columnas eternas.
